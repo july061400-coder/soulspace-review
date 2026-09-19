@@ -500,6 +500,16 @@
 body { background:linear-gradient(145deg,#f7faf5 10%,#e2efdf 50%,#f2f7ed 74%,#e0ebe1); }
     body::before,body.is-on::before { display:none; }
     body::after { background:linear-gradient(125deg,transparent 25%,rgba(255,255,255,.8) 42%,transparent 58%,rgba(121,163,136,.15) 77%,transparent 90%); filter:blur(32px); opacity:.8; }
+    @media(max-width:1024px) {
+      body { height:100dvh; }
+      .play-layer { padding:0 16px max(20px,env(safe-area-inset-bottom)); }
+      .ui-wrapper { width:100%; max-width:540px; gap:12px; }
+      .input-row { padding:10px 12px; gap:8px; }
+      .input-row input[type="text"] { font-size:24px; }
+      .input-row input[type="text"]::placeholder { font-size:13px; }
+      .input-row button,.mode-btn { min-height:44px; }
+      .interaction-caption { top:5rem; font-size:.84rem; }
+    }
   </style>
 </head>
 <body>

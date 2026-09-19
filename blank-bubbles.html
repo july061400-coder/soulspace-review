@@ -462,6 +462,13 @@ body { background:linear-gradient(145deg,#fffaf8 12%,#f4ded7 48%,#fcf0eb 74%,#f0
     body::before,.pressure-field { display:none; }
     body::after { background:linear-gradient(120deg,transparent 22%,rgba(255,255,255,.86) 43%,rgba(212,139,120,.24) 70%,transparent 88%); filter:blur(36px); opacity:var(--release-overlay); mix-blend-mode:normal; }
     .bubble-grid { border:0; border-radius:0; background:transparent; box-shadow:none; }
+    @media(max-width:1024px) {
+      body { height:100dvh; }
+      .bubble-grid { width:88vw; height:min(110vw,56dvh); grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(4,1fr); gap:10px; padding:4px; }
+      .bubble { touch-action:none; }
+      .interaction-caption { top:5rem; width:86vw; font-size:.85rem; word-break:keep-all; }
+      .done-btn,.reset-btn { min-height:44px; }
+    }
   </style>
 </head>
 <body>
@@ -575,8 +582,9 @@ body { background:linear-gradient(145deg,#fffaf8 12%,#f4ded7 48%,#fcf0eb 74%,#f0
         resetBtn.addEventListener('click', resetAfterLook);
 
         let isMouseDown = false;
-        window.addEventListener('mousedown', () => { isMouseDown = true; });
-        window.addEventListener('mouseup', () => { isMouseDown = false; });
+        window.addEventListener('pointerdown', () => { isMouseDown = true; });
+        window.addEventListener('pointerup', () => { isMouseDown = false; });
+        window.addEventListener('pointercancel', () => { isMouseDown = false; });
 
         let audioCtx = null;
         function initAudio() {
@@ -703,13 +711,14 @@ body { background:linear-gradient(145deg,#fffaf8 12%,#f4ded7 48%,#fcf0eb 74%,#f0
                 bubble.classList.add('micro');
             }
 
-            bubble.addEventListener('mousedown', function(e) {
+            bubble.addEventListener('pointerdown', function(e) {
+                e.preventDefault();
                 e.stopPropagation();
                 popBubble(bubble, level, e.clientX, e.clientY);
             });
 
-            bubble.addEventListener('mouseenter', function(e) {
-                if (isMouseDown) {
+            bubble.addEventListener('pointerenter', function(e) {
+                if (isMouseDown && e.pointerType === 'mouse') {
                     const now = performance.now();
                     if (now - lastDragPopAt < 42) return;
                     lastDragPopAt = now;

@@ -478,6 +478,10 @@
     body::after,body.is-tense::after { inset:-20%; opacity:.7; background:linear-gradient(165deg,transparent 32%,rgba(255,255,255,.8) 46%,transparent 59%,rgba(111,174,197,.12) 80%); filter:blur(28px); transform:rotate(-8deg); mix-blend-mode:normal; }
     .marble-stage::before,.marble-stage::after,body.is-centered .marble-stage::after { display:none; }
     body.is-playing canvas,body.is-tense canvas,body.is-centered canvas { animation:none; filter:drop-shadow(0 18px 30px rgba(69,124,149,.12)); }
+    @media(max-width:1024px) {
+      body,.stage { height:100dvh; }
+      .play-hint-top { top:5rem; width:88vw; font-size:.85rem; }
+    }
   </style>
 </head>
 <body>
@@ -517,7 +521,7 @@
         } else if (next === 'centered') {
           playHintTop.textContent = '잠시, 가운데에 머물러 보세요.';
         } else {
-          playHintTop.textContent = '마우스나 방향키로 양끝을 기울일 수 있습니다.';
+          playHintTop.textContent = '양끝을 누르거나 방향키로 천천히 기울여 보세요.';
         }
       }
       marbleAsset.addEventListener('load', () => {
@@ -551,10 +555,10 @@
         canvas.height = Math.round(height * scale);
         context.setTransform(scale, 0, 0, scale, 0, 0);
 
-        beam.half = Math.min(clamp(width * .46, 230, 460), height * .48);
+        beam.half = Math.min(width * .43, 460, height * .48);
         beam.thickness = clamp(width * .02, 13, 20);
         beam.panelHeight = beam.half * 1.22;
-        beam.marble = clamp(width * .068, 40, 58);
+        beam.marble = clamp(width * .068, 22, 58);
         beam.x = width / 2;
         beam.y = height * (0.78 - 0.27 * lift);
         marble.place = clamp(marble.place, -beam.half + beam.marble, beam.half - beam.marble);

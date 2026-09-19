@@ -343,6 +343,16 @@ body { background:linear-gradient(150deg,#faf9fc 8%,#e9e5f5 50%,#f4f0fa 72%,#dfd
     body::before { display:none; }
     body::after { background:linear-gradient(120deg,transparent 25%,rgba(255,255,255,.8) 45%,rgba(163,152,207,var(--awake)) 65%,transparent 84%); filter:blur(40px); opacity:.7; }
     .canvas-container { border:0; border-radius:0; box-shadow:none; background:transparent; }
+    @media(max-width:1024px) {
+      body { height:100dvh; }
+      .play-layer { padding:4.5rem 14px max(18px,env(safe-area-inset-bottom)); }
+      .interaction-caption { top:4.5rem; font-size:.84rem; width:88vw; }
+      .canvas-container { margin-top:4.5rem; }
+      .controls-bar { flex-wrap:wrap; justify-content:center; gap:.3rem; padding:8px 12px; border-radius:20px; }
+      .btn-group { width:100%; justify-content:space-around; gap:8px; }
+      .btn { min-height:44px; font-size:.78rem; }
+      .tempo-container { min-height:36px; }
+    }
   </style>
 </head>
 <body>
@@ -515,7 +525,8 @@ body { background:linear-gradient(150deg,#faf9fc 8%,#e9e5f5 50%,#f4f0fa 72%,#dfd
         canvas.addEventListener('pointermove', (e) => {
             if (!isDrawing || !currentLine) return;
             e.preventDefault();
-            const events = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+            const samples = e.getCoalescedEvents ? e.getCoalescedEvents() : [];
+            const events = samples.length ? samples : [e];
             for (const sample of events) {
                 appendInterpolated(previousPointerEvent || sample, sample);
                 previousPointerEvent = sample;

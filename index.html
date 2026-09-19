@@ -3293,7 +3293,7 @@
         color: #264b63;
       }
 
-      @media (max-width: 760px) {
+      @media (max-width:1024px) {
         .intro-portal {
           gap: .75rem;
           padding-inline: 1rem;
@@ -3894,7 +3894,7 @@
       .cards-wrapper { gap: 9vw; }
     }
 
-    @media (max-width: 760px) {
+    @media (max-width:1024px) {
       #galleryMark {
         top: 1.55rem;
         left: 1.1rem;
@@ -4194,7 +4194,7 @@
       text-shadow: 0 8px 30px rgba(255,255,255,.72);
     }
 
-    @media (max-width: 760px) {
+    @media (max-width:1024px) {
       .about-u-process {
         grid-template-columns: 1fr;
         align-content: center;
@@ -4218,7 +4218,7 @@
     .closing-sentence { font-size:clamp(1.15rem,1.9vw,1.7rem); font-weight:500; }
     .closing-silence { margin-top:1.4rem; color:#617e8d; }
     .about-definition { max-width:52rem; margin:1.5rem auto 0; }
-    @media(max-width:760px) {
+    @media(max-width:1024px) {
       .about-u-process { grid-template-columns:1fr; gap:1.5rem; padding:10vh 6vw 7vh; }
       .about-process-head h2 { font-size:clamp(1.5rem,6.3vw,2.4rem); }
       .about-closing-copy .intro-meet { font-size:clamp(1.9rem,7.7vw,3.5rem); }
@@ -4251,7 +4251,7 @@
     .intro-portal-art .portal-2 { --door-light:rgba(235,242,217,.84); --door-color:rgba(194,220,164,.76); }
     .intro-portal-art .portal-3 { --door-light:rgba(238,229,246,.84); --door-color:rgba(201,182,227,.76); }
     .intro-portal-art .portal-4 { --door-light:rgba(250,233,225,.84); --door-color:rgba(233,189,176,.76); }
-    @media(max-width:760px) { .about-intro-copy .soul-logo { font-size:8.8vw; letter-spacing:-.065em; } }
+    @media(max-width:1024px) { .about-intro-copy .soul-logo { font-size:8.8vw; letter-spacing:-.065em; } }
     /* Y: 물안개에 스며드는 감정의 문 */
     .intro-portal-art .portal-1 { --door-light:rgba(233,245,248,.58); --door-color:rgba(180,216,225,.48); }
     .intro-portal-art .portal-2 { --door-light:rgba(239,244,227,.60); --door-color:rgba(206,221,181,.50); }
@@ -4274,7 +4274,7 @@
     .about-process-item p { font-size:clamp(.9rem,1vw,1rem); line-height:1.75; color:#547080; }
     #galleryGuide { font-size:clamp(1rem,1.15vw,1.2rem); text-align:center; letter-spacing:.1em; color:#355a70; }
     #galleryGuide::after { font-size:clamp(.9rem,1vw,1.05rem); margin-top:.65rem; line-height:1.5; color:#4c6879; }
-    @media(max-width:760px) {
+    @media(max-width:1024px) {
       .about-u-process { grid-template-columns:1fr; gap:1.5rem; padding:10vh 6vw 7vh; }
       .about-process-head h2 { font-size:clamp(1.5rem,6.3vw,2.4rem); }
       .about-process-item { min-height:9rem; padding:1.1rem .9rem; }
@@ -4282,6 +4282,50 @@
       .about-process-item p { font-size:.82rem; }
       #galleryGuide { top:4.8rem; width:88vw; white-space:normal; font-size:.94rem; }
       #galleryGuide::after { font-size:.84rem; }
+    }
+    /* Mobile keeps the desktop artwork, but gives each card its own readable viewport. */
+    .intro-portal-art .portal-keyword { filter:none!important; transition:color .3s,opacity .5s!important; }
+    .portal-lead-tag,.portal-lead-body { filter:none!important; }
+    @media(max-width:1024px) {
+      .viewport,#track,.track-left,.track-gap,#intro,#cards { height:100dvh; }
+      .intro-hero,.intro-portal,.intro-soulspace { height:100svh; min-height:100svh; }
+      #intro .brand { width:100%; left:0; right:0; padding:0 6vw; transform:none; }
+      #intro .intro-meet { font-size:clamp(2rem,11vw,5rem); white-space:nowrap; }
+      #intro .intro-kicker { font-size:.58rem; letter-spacing:.12em; }
+      #intro .intro-subtitle { font-size:.88rem; line-height:1.8; max-width:80vw; margin-inline:auto; white-space:normal; word-break:keep-all; }
+      .intro-portal { padding:3rem 5vw 4rem; gap:.85rem; }
+      .intro-portal-scale { width:min(68vw,calc(49svh * 320 / 480)); flex-shrink:0; }
+      .portal-lead-tag { font-size:1.1rem; }
+      .portal-lead-body,.portal-explain-body { font-size:.85rem; line-height:1.6; white-space:normal!important; }
+      .intro-pan { min-height:44px; }
+      #cards { padding:7rem 0 3rem; }
+      .cards-wrapper { width:100vw; height:min(65dvh,620px); gap:8vw; padding:0 12vw 1rem; overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; touch-action:pan-x; transform:none; scrollbar-width:none; }
+      .cards-wrapper::-webkit-scrollbar { display:none; }
+      .card-slot { flex:0 0 76vw; width:76vw; min-width:76vw; scroll-snap-align:center; }
+      .card-slot .card-item { width:100%; min-width:0; }
+      .gallery-arrow { top:auto; bottom:1rem; width:44px; height:44px; }
+      .gallery-arrow-left { left:calc(50% - 60px); }
+      .gallery-arrow-right { right:calc(50% - 60px); }
+      #galleryMark,#galleryAbout,#galleryMenu,.card-interact-menu,.card-interact-close,#galleryClose { min-height:44px; display:flex; align-items:center; top:.6rem; }
+      #galleryGuide { top:4.3rem; font-size:.9rem; }
+      #galleryGuide::after { content:'카드를 누르거나 좌우로 넘겨 살펴보세요.'; font-size:.78rem; }
+      .card-focus-view.is-direct .card-focus-after-title { font-size:clamp(1.3rem,7vw,2.5rem); white-space:nowrap; }
+      .card-focus-view.is-direct #cardFocusPlayHint { top:auto; bottom:max(2rem,env(safe-area-inset-bottom)); min-height:48px; white-space:nowrap; }
+      .card-focus-view.is-direct .card-focus-body { width:86vw; }
+      .about-lead,.about-u-intro,.about-u-process,.about-u-closing { min-height:100dvh; height:auto; }
+      .about-u-process { padding:5rem 6vw 3rem; gap:1.4rem; align-content:center; }
+      .about-process-item { min-height:8rem; padding:1rem .7rem; }
+      .about-process-item span { font-size:.56rem; letter-spacing:.06em; }
+      .about-process-item strong { font-size:1rem; }
+      .about-process-item p { font-size:.78rem; }
+      .about-definition { font-size:.88rem; line-height:1.9; }
+      .intro-scrollbar,.about-scrollbar { right:.5rem; width:4px; }
+      .track-left { overflow-y:auto; overscroll-behavior:contain; }
+      .about-story { position:relative; transform:none!important; }
+      .about-scrollbar { display:none; }
+      .card-focus-view.is-direct .card-focus-hero { flex-basis:100dvh; }
+      .card-focus-view.is-direct .card-focus-interact { flex-basis:100dvh; }
+      body.is-card-interact .card-focus-view.is-direct .card-focus-interact { height:var(--visible-height,100dvh); flex-basis:var(--visible-height,100dvh); }
     }
   </style>
   </head>
@@ -4411,7 +4455,7 @@
             <div class="portal-lead">
               <p class="portal-lead-tag">LOOK WITHIN.</p>
               <p class="portal-lead-body">지금의 마음과 가장 가까운 문을 골라보세요.</p>
-              <p class="portal-lead-body">문을 선택하면, 감정에 맞는 작은 움직임이 이어집니다.</p>
+              <p class="portal-lead-body">문에 담긴 감정을 살펴보고, 감정 살펴보기에서 체험을 시작하세요.</p>
             </div>
             <div class="intro-portal-scale">
             <div class="intro-portal-art">
@@ -4453,27 +4497,27 @@
               </div>
               <div class="portal-hotspots">
                 <div class="hotspot hotspot-1" data-card="01" data-key="BLANK" data-body="흐트러진 중심을 손끝으로 천천히 맞춰보세요.">
-                  <button class="hot-top" type="button" aria-label="BLANK 감정 체험 선택"></button>
-                  <button class="hot-left" type="button" aria-label="BLANK 감정 체험 선택"></button>
-                  <button class="hot-right" type="button" aria-label="BLANK 감정 체험 선택"></button>
+                  <button class="hot-top" type="button" aria-label="BLANK 감정 설명 보기"></button>
+                  <button class="hot-left" type="button" aria-label="BLANK 감정 설명 보기"></button>
+                  <button class="hot-right" type="button" aria-label="BLANK 감정 설명 보기"></button>
                   <span class="portal-keyword">BLANK</span>
                 </div>
                 <div class="hotspot hotspot-2" data-card="02" data-key="OVERTHINKING" data-body="맴도는 생각을 적어 멀리 날려보세요.">
-                  <button class="hot-top" type="button" aria-label="OVERTHINKING 감정 체험 선택"></button>
-                  <button class="hot-left" type="button" aria-label="OVERTHINKING 감정 체험 선택"></button>
-                  <button class="hot-right" type="button" aria-label="OVERTHINKING 감정 체험 선택"></button>
+                  <button class="hot-top" type="button" aria-label="OVERTHINKING 감정 설명 보기"></button>
+                  <button class="hot-left" type="button" aria-label="OVERTHINKING 감정 설명 보기"></button>
+                  <button class="hot-right" type="button" aria-label="OVERTHINKING 감정 설명 보기"></button>
                   <span class="portal-keyword">OVERTHINKING</span>
                 </div>
                 <div class="hotspot hotspot-3" data-card="03" data-key="DRAINED" data-body="작은 소리와 빛으로 잠든 감각을 깨워보세요.">
-                  <button class="hot-top" type="button" aria-label="DRAINED 감정 체험 선택"></button>
-                  <button class="hot-left" type="button" aria-label="DRAINED 감정 체험 선택"></button>
-                  <button class="hot-right" type="button" aria-label="DRAINED 감정 체험 선택"></button>
+                  <button class="hot-top" type="button" aria-label="DRAINED 감정 설명 보기"></button>
+                  <button class="hot-left" type="button" aria-label="DRAINED 감정 설명 보기"></button>
+                  <button class="hot-right" type="button" aria-label="DRAINED 감정 설명 보기"></button>
                   <span class="portal-keyword">DRAINED</span>
                 </div>
                 <div class="hotspot hotspot-4" data-card="04" data-key="BURNOUT" data-body="쌓인 압박을 손끝으로 하나씩 터뜨려 보세요.">
-                  <button class="hot-top" type="button" aria-label="BURNOUT 감정 체험 선택"></button>
-                  <button class="hot-left" type="button" aria-label="BURNOUT 감정 체험 선택"></button>
-                  <button class="hot-right" type="button" aria-label="BURNOUT 감정 체험 선택"></button>
+                  <button class="hot-top" type="button" aria-label="BURNOUT 감정 설명 보기"></button>
+                  <button class="hot-left" type="button" aria-label="BURNOUT 감정 설명 보기"></button>
+                  <button class="hot-right" type="button" aria-label="BURNOUT 감정 설명 보기"></button>
                   <span class="portal-keyword">BURNOUT</span>
                 </div>
               </div>
@@ -4586,7 +4630,7 @@
                 <p class="about-kicker">ABOUT THE SPACE</p>
                 <h1 class="soul-logo">SOUL SPACE</h1>
                 <p class="about-statement">마음은 때로 꿈처럼,<br />선명한 이름보다 흐릿한 감각으로 남습니다.</p>
-                <p class="about-definition">SOUL SPACE는 이름 붙이기 어려운 감정을<br />시각과 소리, 작은 움직임으로 잠시 마주하고 흘려보내는 인터랙티브 웹 작품입니다.</p>
+                <p class="about-definition">SOUL SPACE는 이름 붙이기 어려운 감정을<br /> 시각과 소리, 작은 움직임으로 잠시 마주하고 흘려보내는 인터랙티브 웹 작품입니다.</p>
               </div>
             </div>
             <div class="about-u-process">
@@ -4608,8 +4652,8 @@
               <div class="about-closing-copy">
                 <p class="about-kicker">AFTER THE FEELING</p>
                 <h1 class="intro-meet">MEET YOUR SOUL</h1>
-                <p class="closing-sentence">방금 마주한 마음은<br />또렷한 답보다 흐릿한 감각으로 남습니다.</p>
-                <p class="closing-silence">천천히 번지고 멀어지는 물결 사이로,<br />잠시의 침묵을 남겨둡니다.</p>
+                <p class="closing-sentence">방금 마주한 마음은<br /> 또렷한 답보다 흐릿한 감각으로 남습니다.</p>
+                <p class="closing-silence">천천히 번지고 멀어지는 물결 사이로,<br /> 잠시의 침묵을 남겨둡니다.</p>
               </div>
             </div>
             <div class="about-lead">
@@ -4880,8 +4924,8 @@
           gsap.set(stairSel, { clipPath: "inset(100% 0 0 0)", opacity: 0, y: 24 });
           gsap.set(windowEl, { autoAlpha: 0, scale: 0.62, filter: "blur(14px)" });
           gsap.set(doorSel, { autoAlpha: 0, y: -16 });
-          gsap.set(leadSel, { autoAlpha: 0, y: 10, filter: "blur(4px)" });
-          gsap.set(keywordSel, { autoAlpha: 0, y: 5, filter: "blur(3px)" });
+          gsap.set(leadSel, { autoAlpha: 0, y: 0, filter: "none" });
+          gsap.set(keywordSel, { autoAlpha: 0, y: 0, filter: "none" });
           gsap.set(explainSel, { autoAlpha: 0, y: 8 });
           gsap.set(portalArt, { "--wash": 0 });
           if (grain) gsap.set(grain, { opacity: 0 });
@@ -5000,10 +5044,8 @@
             btn.addEventListener("pointerleave", hide);
             btn.addEventListener("focus", show);
             btn.addEventListener("blur", hide);
-            btn.addEventListener("click", () => {
-              const cardId = spot.dataset.card;
-              if (cardId) openCardFocus(cardId);
-            });
+            // Intro doors preview feelings; only gallery cards launch experiences.
+            btn.addEventListener("click", show);
           });
         });
       })();
@@ -5059,6 +5101,10 @@
       function goAboutPage(page) {
         aboutPage = gsap.utils.clamp(0, ABOUT_PAGE_MAX, page);
         aboutProgress = ABOUT_PAGE_MAX > 0 ? aboutPage / ABOUT_PAGE_MAX : 0;
+        if (window.innerWidth <= 1024) {
+          aboutStory.parentElement.scrollTo({top:aboutPageY(aboutPage),behavior:"smooth"});
+          return;
+        }
         gsap.to(aboutStory, {
           y: -aboutPageY(aboutPage),
           duration: 0.8,
@@ -5069,6 +5115,18 @@
         });
         syncAboutScrollbar();
       }
+
+      let aboutTouchY = null;
+      document.addEventListener("touchstart", (event) => {
+        if (view === "about" && window.innerWidth > 1024 && !event.target.closest("button,a,.about-scrollbar")) aboutTouchY = event.touches[0].clientY;
+      }, {passive:true});
+      document.addEventListener("touchend", (event) => {
+        if (view === "about" && aboutTouchY !== null) {
+          const delta = aboutTouchY - event.changedTouches[0].clientY;
+          if (Math.abs(delta) > 40) goAboutPage(aboutPage + Math.sign(delta));
+        }
+        aboutTouchY = null;
+      }, {passive:true});
 
       window.addEventListener("resize", () => {
         if (view !== "about" || !aboutStory) return;
@@ -5273,6 +5331,12 @@
         const left = document.querySelector("#galleryArrowLeft");
         const right = document.querySelector("#galleryArrowRight");
         if (!left || !right) return;
+        if (window.innerWidth <= 1024) {
+          const cards = document.querySelector(".cards-wrapper");
+          left.classList.toggle("is-dim", cards.scrollLeft < 4);
+          right.classList.toggle("is-dim", cards.scrollLeft >= cards.scrollWidth-cards.clientWidth-4);
+          return;
+        }
         if (
           document.body.classList.contains("is-about") ||
           !document.body.classList.contains("is-gallery-nav") ||
@@ -5290,6 +5354,11 @@
 
       function moveGallery(dir) {
         if (view !== "gallery" || document.body.classList.contains("is-card-open")) return;
+        if (window.innerWidth <= 1024) {
+          const cards = document.querySelector(".cards-wrapper");
+          cards.scrollBy({left:dir * window.innerWidth * .84, behavior:"smooth"});
+          return;
+        }
         const { minX, maxX } = galleryBounds();
         const current = Number(gsap.getProperty(track, "x"));
         const next = gsap.utils.clamp(minX, maxX, current - dir * window.innerWidth * 0.34);
@@ -5314,6 +5383,7 @@
           "wheel",
           (event) => {
             if (view === "intro") return;
+            if ((view === "gallery" || view === "about") && window.innerWidth <= 1024) return;
             if (view === "focus" && (universePlayOpen || bubblePlayOpen || thinkPlayOpen || warmthPlayOpen)) return;
             event.preventDefault();
             if (view === "focus") {
@@ -5396,7 +5466,7 @@
         universePlayOpen = true;
         const frame = document.querySelector("#universeFrame");
         if (frame && !frame.getAttribute("src")) {
-          frame.src = "./drained-universe.html?v=7";
+          frame.src = "./drained-universe.html?v=mobile02";
         }
         document.querySelector("#universePlay").classList.add("is-on");
         hidePlayMarks();
@@ -5426,7 +5496,7 @@
         bubblePlayOpen = true;
         const frame = document.querySelector("#bubbleFrame");
         if (frame && !frame.getAttribute("src")) {
-          frame.src = "./blank-bubbles.html?v=7";
+          frame.src = "./blank-bubbles.html?v=mobile02";
         }
         document.querySelector("#bubblePlay").classList.add("is-on");
         hidePlayMarks();
@@ -5454,7 +5524,7 @@
         thinkPlayOpen = true;
         const frame = document.querySelector("#thinkFrame");
         if (frame && !frame.getAttribute("src")) {
-          frame.src = "./overthinking-delete.html?v=7";
+          frame.src = "./overthinking-delete.html?v=mobile02";
         }
         document.querySelector("#thinkPlay").classList.add("is-on");
         hidePlayMarks();
@@ -5482,7 +5552,7 @@
         warmthPlayOpen = true;
         const frame = document.querySelector("#warmthFrame");
         if (frame && !frame.getAttribute("src")) {
-          frame.src = "./blank-bubbles.html?v=7";
+          frame.src = "./blank-bubbles.html?v=mobile02";
         }
         document.querySelector("#warmthPlay").classList.add("is-on");
         hidePlayMarks();
@@ -5575,22 +5645,22 @@
         gsap.set("#galleryMark, #galleryGuide", { autoAlpha: 0 });
         if (id === "01") {
           if (blankMarbleFrame && !blankMarbleFrame.getAttribute("src")) {
-            blankMarbleFrame.src = "./blank-marble.html?v=7";
+            blankMarbleFrame.src = "./blank-marble.html?v=mobile02";
           }
         }
         if (id === "02") {
           if (thinkInteractFrame && !thinkInteractFrame.getAttribute("src")) {
-            thinkInteractFrame.src = "./overthinking-delete.html?v=7";
+            thinkInteractFrame.src = "./overthinking-delete.html?v=mobile02";
           }
         }
         if (id === "03") {
           if (universeInteractFrame && !universeInteractFrame.getAttribute("src")) {
-            universeInteractFrame.src = "./drained-universe.html?v=7";
+            universeInteractFrame.src = "./drained-universe.html?v=mobile02";
           }
         }
         if (id === "04") {
           if (bubbleInteractFrame && !bubbleInteractFrame.getAttribute("src")) {
-            bubbleInteractFrame.src = "./blank-bubbles.html?v=7";
+            bubbleInteractFrame.src = "./blank-bubbles.html?v=mobile02";
           }
         }
         const activeBody = [cardFocusBody, cardFocusBody02, cardFocusBody03, cardFocusBody04].find(
@@ -5613,6 +5683,7 @@
       }
 
       function resetAboutScroll() {
+        aboutStory.parentElement.scrollTop = 0;
         aboutPage = 0;
         aboutProgress = 0;
         aboutWheelAt = 0;
@@ -5667,6 +5738,22 @@
         gsap.to("#galleryClose", { autoAlpha: 0, duration: 0.35, overwrite: true });
         gsap.to("#galleryAbout, #galleryGuide, #galleryMark", { autoAlpha: 1, duration: 0.35, overwrite: true });
       }
+
+      document.querySelector(".cards-wrapper").addEventListener("scroll", updateGalleryArrows, {passive:true});
+      let previousWidth = window.innerWidth;
+      function syncVisibleHeight() {
+        document.documentElement.style.setProperty("--visible-height", `${window.visualViewport?.height || window.innerHeight}px`);
+        if (view === "focus" && document.body.classList.contains("is-card-interact")) gsap.set(cardFocusStory,{y:-window.innerHeight});
+      }
+      window.visualViewport?.addEventListener("resize", syncVisibleHeight);
+      syncVisibleHeight();
+      window.addEventListener("resize", () => {
+        if (window.innerWidth === previousWidth) return;
+        previousWidth = window.innerWidth;
+        gsap.killTweensOf(track);
+        gsap.set(track, {x:view === "intro" ? startX : view === "about" ? aboutX : landX});
+        updateGalleryArrows();
+      });
 
       document.querySelector("#card01").addEventListener("click", () => openCardFocus("01"));
       document.querySelector("#card02").addEventListener("click", () => openCardFocus("02"));
