@@ -5228,7 +5228,7 @@
         left: 50%;
         width: 86vw;
         margin: 0;
-        transform: translateX(calc(-50% - 2.4vw));
+        transform: translateX(calc(-50% - 3.2vw));
         font-size: clamp(.67rem, 2.9vw, .76rem);
         line-height: 1.4;
         letter-spacing: -.025em;
@@ -5368,11 +5368,12 @@
         width: 40vw;
         font-size: clamp(.46rem, 2.15vw, .56rem);
         letter-spacing: .09em;
-        margin-left: 1.2vw;
+        margin-left: 0;
       }
 
       body.is-gallery-nav:not(.is-card-open) #galleryGuide::after {
         font-size: clamp(.58rem, 2.55vw, .68rem);
+        transform: translateX(-50%);
       }
 
       /* Paint containment clipped the emotion washes into visible rectangles
