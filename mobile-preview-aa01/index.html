@@ -5328,6 +5328,74 @@
       .about-intro-copy .soul-logo { font-size: clamp(2.55rem, 11.4vw, 3.7rem); }
       .about-closing-copy .intro-meet { font-size: clamp(2.3rem, 10.8vw, 3.5rem); }
     }
+
+    /* AD — optical centering and clean mobile gallery surfaces. */
+    @media (max-width:767px) {
+      .intro-soulspace .about-copy {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .intro-soulspace .about-copy::before {
+        position: relative;
+        left: 50%;
+        width: 100vw;
+        flex: 0 0 100vw;
+        padding-inline: 2vw;
+        box-sizing: border-box;
+        text-align: center;
+        transform: translateX(-50%);
+      }
+
+      body.is-gallery-nav:not(.is-card-open) #galleryMark {
+        width: 30vw;
+        justify-content: flex-start;
+      }
+
+      body.is-gallery-nav:not(.is-card-open) #galleryMark .soul-logo,
+      body.is-gallery-nav:not(.is-card-open) #galleryAbout {
+        font-size: clamp(.58rem, 2.7vw, .68rem);
+        letter-spacing: .01em;
+      }
+
+      body.is-gallery-nav:not(.is-card-open) #galleryAbout {
+        width: 30vw;
+        justify-content: flex-end;
+      }
+
+      body.is-gallery-nav:not(.is-card-open) #galleryGuide {
+        width: 40vw;
+        font-size: clamp(.46rem, 2.15vw, .56rem);
+        letter-spacing: .09em;
+      }
+
+      body.is-gallery-nav:not(.is-card-open) #galleryGuide::after {
+        font-size: clamp(.58rem, 2.55vw, .68rem);
+      }
+
+      /* Paint containment clipped the emotion washes into visible rectangles
+         on some Android in-app browsers. Keep layout containment only. */
+      .cards-wrapper,
+      .card-slot,
+      .card-item {
+        contain: layout style;
+        overflow: visible;
+      }
+
+      .card-item::after { display: none; }
+
+      .card-gradient-box {
+        overflow: visible;
+        clip-path: none;
+      }
+
+      .card-gradient-box::before {
+        inset: 10% 8% 12% !important;
+        opacity: .32 !important;
+        box-shadow: none !important;
+      }
+    }
   </style>
   </head>
   <body>
