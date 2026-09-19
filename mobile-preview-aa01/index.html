@@ -5022,7 +5022,7 @@
       }
 
       #intro .intro-hero .intro-subtitle {
-        top: calc(50% + 3.7rem);
+        top: calc(50% + 2.2rem);
         width: min(20rem, 82vw);
         line-height: 1.58;
       }
@@ -5149,11 +5149,12 @@
 
       .about-closing-copy .intro-meet { margin-bottom: .95rem; }
       .about-closing-copy .closing-silence { margin-top: .55rem; }
+      .about-scroll-hint { display: none; }
     }
 
     @media (max-width:767px) and (max-height:720px) {
       #intro .intro-hero .intro-poster { transform: translateY(-4.6svh); }
-      #intro .intro-hero .intro-subtitle { top: calc(50% + 3.45rem); }
+      #intro .intro-hero .intro-subtitle { top: calc(50% + 2rem); }
       #galleryGuide { top: calc(var(--mobile-top) + 3.15rem); }
       #cards { padding-top: 5.35rem; }
       .cards-wrapper,
@@ -6494,7 +6495,12 @@
         gsap.to("#galleryMenu, #galleryAbout", { autoAlpha: 1, duration: 0.4, overwrite: true });
         gsap.set("#galleryScroll", { autoAlpha: 0 });
         gsap.killTweensOf("#galleryMark, #galleryGuide");
-        gsap.set("#galleryMark, #galleryGuide", { autoAlpha: 0 });
+        if (window.matchMedia("(max-width: 767px)").matches) {
+          gsap.set("#galleryMark", { autoAlpha: 1 });
+          gsap.set("#galleryGuide", { autoAlpha: 0 });
+        } else {
+          gsap.set("#galleryMark, #galleryGuide", { autoAlpha: 0 });
+        }
         if (id === "01") {
           if (blankMarbleFrame && !blankMarbleFrame.getAttribute("src")) {
             blankMarbleFrame.src = "./blank-marble.html?v=mobile02";
