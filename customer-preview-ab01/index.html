@@ -4894,6 +4894,67 @@
       filter: none;
     }
 
+    /* PC final rhythm — keep titles and their supporting copy as one lockup. */
+    @media (min-width:1025px) {
+      #intro .intro-hero .intro-subtitle {
+        top: calc(50% + 5.25rem);
+      }
+
+      #intro .intro-soulspace .about-copy {
+        padding-top: 1.8rem;
+      }
+
+      .intro-portal .portal-lead-tag {
+        margin-bottom: .58rem;
+      }
+
+      .intro-portal .portal-lead-body + .portal-lead-body {
+        margin-top: .28rem;
+      }
+
+      .intro-portal .portal-explain-key {
+        margin-bottom: .42rem;
+      }
+
+      #galleryGuide::after {
+        margin-top: .42rem;
+      }
+
+      .card-focus-view.is-direct .card-focus-body,
+      .card-focus-view.is-direct #cardFocusBody,
+      .card-focus-view.is-direct #cardFocusBody02,
+      .card-focus-view.is-direct #cardFocusBody03,
+      .card-focus-view.is-direct #cardFocusBody04 {
+        transform: translate(-50%, calc(-7vh + min(15vmin, 9.5rem)));
+      }
+
+      .card-focus-view.is-direct #cardFocusPlayHint {
+        top: calc(50% - 7vh + min(15vmin, 9.5rem) + 7rem);
+      }
+
+      .about-intro-copy .about-kicker,
+      .about-process-head .about-kicker,
+      .about-closing-copy .about-kicker {
+        margin-bottom: 1rem;
+      }
+
+      .about-intro-copy .about-statement {
+        margin-top: clamp(1.15rem, 2.4vh, 1.8rem);
+      }
+
+      .about-intro-copy .about-definition {
+        margin-top: .85rem;
+      }
+
+      .about-closing-copy .intro-meet {
+        margin-bottom: clamp(1.15rem, 2.6vh, 1.85rem);
+      }
+
+      .about-closing-copy .closing-silence {
+        margin-top: .8rem;
+      }
+    }
+
     @media (max-width:1024px) {
       .about-intro-copy .soul-logo {
         font-size: clamp(2rem, 7.8vw, 4.1rem);
