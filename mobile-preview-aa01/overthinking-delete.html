@@ -510,6 +510,15 @@ body { background:linear-gradient(145deg,#f7faf5 10%,#e2efdf 50%,#f2f7ed 74%,#e0
       .input-row button,.mode-btn { min-height:44px; }
       .interaction-caption { top:5rem; font-size:.84rem; }
     }
+    @media(max-width:767px) {
+      body::after { filter:blur(14px); opacity:.5; }
+      .interaction-caption { top:4.65rem; width:84vw; font-size:.8rem; line-height:1.5; }
+      .play-layer { padding-inline:14px; }
+      .ui-wrapper { gap:9px; }
+      .input-row { padding:8px 10px; }
+      .input-row input[type="text"] { font-size:21px; }
+      .custom-card { padding:9px 10px; }
+    }
   </style>
 </head>
 <body>

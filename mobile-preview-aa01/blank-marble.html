@@ -482,6 +482,11 @@
       body,.stage { height:100svh; }
       .play-hint-top { top:5rem; width:88vw; font-size:.85rem; }
     }
+    @media(max-width:767px) {
+      body::after,body.is-tense::after { filter:blur(14px); opacity:.48; }
+      .play-hint-top { top:4.65rem; width:84vw; font-size:.8rem; line-height:1.5; }
+      .guide-copy { width:84vw; }
+    }
   </style>
 </head>
 <body>
@@ -544,6 +549,8 @@
       let marble = { place: 0, velocity: 0, falling: 0, direction: 1, spin: 0 };
       let press = { active: false, x: 0, place: 0, strength: 0 };
       let lastTime = performance.now();
+      let animationFrame = 0;
+      let animationActive = false;
       let centeredFor = 0;
       let lastStatus = '';
       let started = false;
@@ -554,7 +561,7 @@
 
       function resize() {
         const bounds = stage.getBoundingClientRect();
-        scale = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 767 ? 1.5 : 2);
+        scale = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 767 ? 1.25 : 2);
         width = Math.max(1, bounds.width);
         height = Math.max(1, bounds.height);
         canvas.width = Math.round(width * scale);
@@ -616,6 +623,7 @@
       stage.addEventListener('pointercancel', end);
 
       function beginPlay() {
+        resumeAnimation();
         if (started) return;
         started = true;
         document.body.classList.add('is-playing');
@@ -923,6 +931,8 @@
       }
 
       function animate(now) {
+        animationFrame = 0;
+        if (!animationActive) return;
         const elapsed = Math.min(32, now - lastTime);
         lastTime = now;
         const frame = elapsed / 16.67;
@@ -931,7 +941,7 @@
           lift = Math.min(1, lift + elapsed / 780);
           beam.y = height * (0.78 - 0.27 * lift);
           draw();
-          requestAnimationFrame(animate);
+          animationFrame = requestAnimationFrame(animate);
           return;
         }
 
@@ -949,7 +959,7 @@
           beam.target = 0;
           press.active = false;
           draw();
-          requestAnimationFrame(animate);
+          animationFrame = requestAnimationFrame(animate);
           return;
         }
 
@@ -1004,7 +1014,14 @@
         }
 
         draw();
-        requestAnimationFrame(animate);
+        animationFrame = requestAnimationFrame(animate);
+      }
+
+      function resumeAnimation() {
+        if (animationActive && animationFrame) return;
+        animationActive = true;
+        lastTime = performance.now();
+        animationFrame = requestAnimationFrame(animate);
       }
 
       window.addEventListener('wheel', (event) => {
@@ -1014,7 +1031,6 @@
 
       new ResizeObserver(resize).observe(stage);
       resize();
-      requestAnimationFrame(animate);
       window.addEventListener('keydown', (event) => {
         if (event.code === 'Space' || event.key === ' ') {
           event.preventDefault();
@@ -1028,8 +1044,13 @@
         }
         resize();
       };
-      window.beginMarble = beginPlay;
+      window.beginMarble = function () {
+        beginPlay();
+      };
       window.resetMarble = function () {
+        animationActive = false;
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+        animationFrame = 0;
         started = false;
         lift = 0;
         nudgeDone = false;
@@ -1049,6 +1070,7 @@
         setVisualState('neutral');
         guideCopy.classList.remove('is-gone');
         resize();
+        draw();
       };
     })();
   </script>
