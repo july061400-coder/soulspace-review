@@ -4175,6 +4175,7 @@
       font-weight: 600;
       line-height: 1.55;
       letter-spacing: -.045em;
+      white-space: nowrap;
     }
 
     .closing-silence {
@@ -4182,6 +4183,7 @@
       color: rgba(48,77,94,.64);
       font-size: clamp(.88rem, 1.1vw, 1.02rem);
       line-height: 1.85;
+      white-space: nowrap;
     }
 
     .about-closing-copy .intro-meet {
@@ -4207,7 +4209,9 @@
       .about-process-item strong { margin-top: .85rem; }
       .about-process-item p { font-size: .72rem; }
       .about-intro-copy, .about-closing-copy { width: min(88vw, 34rem); }
-      .about-definition br, .closing-sentence br, .closing-silence br { display: none; }
+      .about-definition br { display: none; }
+      .closing-sentence { font-size:clamp(.82rem,3.55vw,1.2rem); letter-spacing:-.055em; }
+      .closing-silence { font-size:clamp(.7rem,3vw,.92rem); letter-spacing:-.035em; }
     }
 .about-dream-field,.closing-wave { display:none; }
     .about-u-process { grid-template-columns:minmax(0,.95fr) minmax(0,1.3fr); gap:4vw; padding-left:5vw; padding-right:5vw; }
@@ -4319,6 +4323,9 @@
       .about-process-item strong { font-size:1rem; }
       .about-process-item p { font-size:.78rem; }
       .about-definition { font-size:.88rem; line-height:1.9; }
+      .about-closing-copy { width:96vw; }
+      .closing-sentence { font-size:clamp(.75rem,3.2vw,1.2rem); letter-spacing:-.055em; white-space:nowrap; }
+      .closing-silence { font-size:clamp(.65rem,2.7vw,.95rem); letter-spacing:-.04em; white-space:nowrap; }
       .intro-scrollbar,.about-scrollbar { right:.5rem; width:4px; }
       .track-left { overflow-y:auto; overscroll-behavior:contain; }
       .about-story { position:relative; transform:none!important; }
@@ -4652,8 +4659,8 @@
               <div class="about-closing-copy">
                 <p class="about-kicker">AFTER THE FEELING</p>
                 <h1 class="intro-meet">MEET YOUR SOUL</h1>
-                <p class="closing-sentence">방금 마주한 마음은<br /> 또렷한 답보다 흐릿한 감각으로 남습니다.</p>
-                <p class="closing-silence">천천히 번지고 멀어지는 물결 사이로,<br /> 잠시의 침묵을 남겨둡니다.</p>
+                <p class="closing-sentence">방금 스쳐 간 감정을 붙잡지 않아도 괜찮습니다.</p>
+                <p class="closing-silence">천천히 멀어지는 물결을 바라보며, 조용히 이곳을 나서도 좋습니다.</p>
               </div>
             </div>
             <div class="about-lead">
