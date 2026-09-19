@@ -5228,7 +5228,7 @@
         left: 50%;
         width: 86vw;
         margin: 0;
-        transform: translateX(-50%);
+        transform: translateX(calc(-50% - 2.4vw));
         font-size: clamp(.67rem, 2.9vw, .76rem);
         line-height: 1.4;
         letter-spacing: -.025em;
@@ -5368,6 +5368,7 @@
         width: 40vw;
         font-size: clamp(.46rem, 2.15vw, .56rem);
         letter-spacing: .09em;
+        margin-left: 1.2vw;
       }
 
       body.is-gallery-nav:not(.is-card-open) #galleryGuide::after {
@@ -5380,8 +5381,17 @@
       .card-slot,
       .card-item {
         contain: layout style;
-        overflow: visible;
       }
+
+      .cards-wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+        touch-action: pan-x;
+        overscroll-behavior-x: contain;
+      }
+
+      .card-slot,
+      .card-item { overflow: visible; }
 
       .card-item::after { display: none; }
 
