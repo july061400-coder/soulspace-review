@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>잡념 비우기</title>
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <style>
         * { box-sizing: border-box; }
@@ -501,7 +502,7 @@ body { background:linear-gradient(145deg,#f7faf5 10%,#e2efdf 50%,#f2f7ed 74%,#e0
     body::before,body.is-on::before { display:none; }
     body::after { background:linear-gradient(125deg,transparent 25%,rgba(255,255,255,.8) 42%,transparent 58%,rgba(121,163,136,.15) 77%,transparent 90%); filter:blur(32px); opacity:.8; }
     @media(max-width:1024px) {
-      body { height:100dvh; }
+      body { height:100svh; }
       .play-layer { padding:0 16px max(20px,env(safe-area-inset-bottom)); }
       .ui-wrapper { width:100%; max-width:540px; gap:12px; }
       .input-row { padding:10px 12px; gap:8px; }
@@ -509,6 +510,15 @@ body { background:linear-gradient(145deg,#f7faf5 10%,#e2efdf 50%,#f2f7ed 74%,#e0
       .input-row input[type="text"]::placeholder { font-size:13px; }
       .input-row button,.mode-btn { min-height:44px; }
       .interaction-caption { top:5rem; font-size:.84rem; }
+    }
+    @media(max-width:767px) {
+      body::after { filter:blur(14px); opacity:.5; }
+      .interaction-caption { top:4.65rem; width:84vw; font-size:.8rem; line-height:1.5; }
+      .play-layer { padding-inline:14px; }
+      .ui-wrapper { gap:9px; }
+      .input-row { padding:8px 10px; }
+      .input-row input[type="text"] { font-size:21px; }
+      .custom-card { padding:9px 10px; }
     }
   </style>
 </head>

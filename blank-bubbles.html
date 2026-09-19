@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>soulspace — BURNOUT</title>
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <style>
         * {
@@ -463,11 +464,18 @@ body { background:linear-gradient(145deg,#fffaf8 12%,#f4ded7 48%,#fcf0eb 74%,#f0
     body::after { background:linear-gradient(120deg,transparent 22%,rgba(255,255,255,.86) 43%,rgba(212,139,120,.24) 70%,transparent 88%); filter:blur(36px); opacity:var(--release-overlay); mix-blend-mode:normal; }
     .bubble-grid { border:0; border-radius:0; background:transparent; box-shadow:none; }
     @media(max-width:1024px) {
-      body { height:100dvh; }
-      .bubble-grid { width:88vw; height:min(110vw,56dvh); grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(4,1fr); gap:10px; padding:4px; }
+      body { height:100svh; }
+      .bubble-grid { width:88vw; height:44vw; max-height:13rem; grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,1fr); gap:8px; padding:4px; }
       .bubble { touch-action:none; }
       .interaction-caption { top:5rem; width:86vw; font-size:.85rem; word-break:keep-all; }
+      .action-row { bottom:max(12px,env(safe-area-inset-bottom)); }
       .done-btn,.reset-btn { min-height:44px; }
+    }
+    @media(max-width:767px) {
+      body::after { filter:blur(15px); opacity:var(--release-overlay); }
+      .bubble-grid { width:84vw; height:42vw; max-height:11.5rem; gap:7px; }
+      .interaction-caption { top:4.65rem; width:84vw; font-size:.8rem; line-height:1.5; }
+      .action-row { gap:8px; }
     }
   </style>
 </head>
