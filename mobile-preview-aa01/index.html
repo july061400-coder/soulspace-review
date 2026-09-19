@@ -4896,6 +4896,16 @@
 
     /* PC final rhythm — keep titles and their supporting copy as one lockup. */
     @media (min-width:1025px) {
+      body.is-card-open #galleryAbout,
+      body.is-card-open #galleryMenu {
+        top: 5rem;
+        height: 1.5rem;
+        min-height: 1.5rem;
+        display: flex;
+        align-items: center;
+        line-height: 1;
+      }
+
       #intro .intro-hero .intro-subtitle {
         top: calc(50% + 4.45rem);
       }
@@ -5228,7 +5238,7 @@
         left: 50%;
         width: 86vw;
         margin: 0;
-        transform: translateX(calc(-50% - 7.5vw));
+        transform: translateX(calc(-50% - 9.15vw));
         font-size: clamp(.67rem, 2.9vw, .76rem);
         line-height: 1.4;
         letter-spacing: -.025em;
@@ -5348,30 +5358,37 @@
         transform: translateX(-50%);
       }
 
-      body.is-gallery-nav:not(.is-card-open) #galleryMark {
+      body.is-gallery-nav:not(.is-card-open) #galleryMark,
+      body.is-mobile-transition #galleryMark,
+      body.is-about #galleryMark {
         width: 30vw;
         justify-content: flex-start;
       }
 
       body.is-gallery-nav:not(.is-card-open) #galleryMark .soul-logo,
+      body.is-mobile-transition #galleryMark .soul-logo,
+      body.is-about #galleryMark .soul-logo,
       body.is-gallery-nav:not(.is-card-open) #galleryAbout {
         font-size: clamp(.58rem, 2.7vw, .68rem);
         letter-spacing: .01em;
       }
 
-      body.is-gallery-nav:not(.is-card-open) #galleryAbout {
+      body.is-gallery-nav:not(.is-card-open) #galleryAbout,
+      body.is-mobile-transition #galleryAbout {
         width: 30vw;
         justify-content: flex-end;
       }
 
-      body.is-gallery-nav:not(.is-card-open) #galleryGuide {
+      body.is-gallery-nav:not(.is-card-open) #galleryGuide,
+      body.is-mobile-transition #galleryGuide {
         width: 40vw;
         font-size: clamp(.46rem, 2.15vw, .56rem);
         letter-spacing: .09em;
         margin-left: 0;
       }
 
-      body.is-gallery-nav:not(.is-card-open) #galleryGuide::after {
+      body.is-gallery-nav:not(.is-card-open) #galleryGuide::after,
+      body.is-mobile-transition #galleryGuide::after {
         font-size: clamp(.58rem, 2.55vw, .68rem);
         transform: translateX(-50%);
       }
