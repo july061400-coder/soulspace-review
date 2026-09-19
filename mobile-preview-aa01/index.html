@@ -5007,6 +5007,12 @@
 
       body.is-mobile-transition::after { opacity: 1; }
 
+      body.is-card-open:not(.is-card-interact) #galleryMark {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+
       .viewport {
         contain: layout paint;
         backface-visibility: hidden;
