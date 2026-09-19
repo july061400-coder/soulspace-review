@@ -5168,6 +5168,166 @@
       .card-slot { flex-basis: 64vw; width: 64vw; min-width: 64vw; }
       .cards-wrapper { padding-inline: 18vw; }
     }
+
+    /* AC — real-device mobile typography and card cleanup. */
+    @media (max-width:767px) {
+      /* Keep the hero title and its sentence as one compact lockup. */
+      #intro .intro-hero .intro-subtitle {
+        top: calc(50% + 1.15rem);
+        width: min(22rem, 90vw);
+        font-size: clamp(.78rem, 3.45vw, .9rem);
+        line-height: 1.5;
+      }
+
+      /* The last intro panel follows the PC hierarchy, with exactly two
+         balanced supporting lines on a phone. */
+      #intro .intro-soulspace h1.soul-logo {
+        font-size: clamp(1.85rem, 8.45vw, 2.6rem);
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .intro-soulspace .about-copy {
+        width: 96vw;
+        max-width: 31rem;
+        padding-top: .95rem;
+      }
+
+      .intro-soulspace .about-copy p { display: none; }
+
+      .intro-soulspace .about-copy::before {
+        content: "네 가지 무거운 감정을, 작은 움직임으로 마주합니다.\A균형을 찾고 생각을 흘리며, 쌓인 마음을 가볍게 덜어보세요.";
+        display: block;
+        color: #2c3640;
+        font-family: Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        font-size: clamp(.66rem, 2.9vw, .78rem);
+        font-weight: 500;
+        line-height: 1.72;
+        letter-spacing: -.045em;
+        white-space: pre;
+      }
+
+      /* Align the gallery title with the left and right header controls.
+         Its explanation stays below as a quiet secondary line. */
+      #galleryGuide {
+        top: var(--mobile-top);
+        width: 44vw;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(.58rem, 2.55vw, .7rem);
+        line-height: 1;
+        letter-spacing: .11em;
+        white-space: nowrap;
+      }
+
+      #galleryGuide::after {
+        position: absolute;
+        top: 2.55rem;
+        left: 50%;
+        width: 86vw;
+        margin: 0;
+        transform: translateX(-50%);
+        font-size: clamp(.67rem, 2.9vw, .76rem);
+        line-height: 1.4;
+        letter-spacing: -.025em;
+        white-space: nowrap;
+      }
+
+      #cards { padding-top: 5.2rem; }
+
+      /* Remove rectangular image/texture boundaries inside the droplets. */
+      .card-gradient-box::after { display: none; }
+
+      .card-emblem img {
+        clip-path: ellipse(48% 44% at 50% 50%);
+        -webkit-mask-image: radial-gradient(ellipse at center, #000 48%, transparent 73%);
+        mask-image: radial-gradient(ellipse at center, #000 48%, transparent 73%);
+      }
+
+      /* Replace the old repeated sentence artwork with a clean, quiet orbit. */
+      .card-02 .card-orbit { display: none; }
+
+      .card-02 .card-emblem::before,
+      .card-02 .card-emblem::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 56%;
+        aspect-ratio: 1.45 / 1;
+        border: 1px solid rgba(115, 158, 101, .24);
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 52% 52%, rgba(172, 211, 154, .22), transparent 66%);
+        box-shadow: inset 0 0 18px rgba(190, 224, 174, .16), 0 0 20px rgba(144, 189, 127, .08);
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(-12deg);
+      }
+
+      .card-02 .card-emblem::after {
+        width: 8px;
+        height: 8px;
+        aspect-ratio: 1;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(130, 176, 113, .5);
+        box-shadow: -34px 10px 0 -2px rgba(148, 192, 131, .28), 29px -9px 0 -2px rgba(148, 192, 131, .24);
+        transform: translate(-50%, -50%);
+      }
+
+      /* Restore the same title-to-copy hierarchy used on desktop. */
+      .about-intro-copy {
+        width: min(92vw, 31rem);
+      }
+
+      .about-intro-copy .soul-logo {
+        font-size: clamp(2.75rem, 12.3vw, 4.1rem);
+        line-height: .94;
+      }
+
+      .about-intro-copy .about-statement {
+        margin-top: .9rem;
+        font-size: clamp(.9rem, 3.85vw, 1.05rem);
+        line-height: 1.55;
+      }
+
+      .about-intro-copy .about-definition {
+        width: min(92vw, 29rem);
+        margin: .62rem auto 0;
+        font-size: clamp(.7rem, 2.95vw, .82rem);
+        line-height: 1.68;
+      }
+
+      .about-closing-copy {
+        width: min(94vw, 32rem);
+      }
+
+      .about-closing-copy .intro-meet {
+        margin-bottom: .85rem;
+        font-size: clamp(2.5rem, 11.4vw, 3.8rem);
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .about-closing-copy .closing-sentence {
+        font-size: clamp(.75rem, 3.15vw, .88rem);
+        line-height: 1.55;
+      }
+
+      .about-closing-copy .closing-silence {
+        margin-top: .5rem;
+        font-size: clamp(.65rem, 2.65vw, .76rem);
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-width:767px) and (max-height:720px) {
+      #intro .intro-hero .intro-subtitle { top: calc(50% + .9rem); }
+      #cards { padding-top: 4.85rem; }
+      .about-intro-copy .soul-logo { font-size: clamp(2.55rem, 11.4vw, 3.7rem); }
+      .about-closing-copy .intro-meet { font-size: clamp(2.3rem, 10.8vw, 3.5rem); }
+    }
   </style>
   </head>
   <body>
