@@ -5425,6 +5425,166 @@
         box-shadow: none !important;
       }
     }
+    /* AD — revision 02: harmonize the BLANK and BURNOUT menu emblems. */
+    .card-01 .card-marble {
+      width: 31%;
+      opacity: .5;
+      filter: saturate(.48) contrast(.88) brightness(1.08) blur(.18px)
+        drop-shadow(0 13px 24px rgba(88, 151, 181, .1));
+      -webkit-mask-image: radial-gradient(circle at 50% 48%, #000 38%, rgba(0, 0, 0, .78) 55%, transparent 76%);
+      mask-image: radial-gradient(circle at 50% 48%, #000 38%, rgba(0, 0, 0, .78) 55%, transparent 76%);
+    }
+
+    .card-01 .card-emblem::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      width: 49%;
+      aspect-ratio: 1.34 / 1;
+      border: 1px solid rgba(92, 160, 190, .2);
+      border-radius: 50%;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(176, 222, 237, .18), transparent 63%),
+        linear-gradient(114deg, transparent 26%, rgba(255, 255, 255, .34) 49%, transparent 69%);
+      box-shadow:
+        inset 0 0 24px rgba(176, 222, 237, .14),
+        0 0 28px rgba(112, 184, 212, .08);
+      opacity: .92;
+      transform: translate(-50%, -50%) rotate(-7deg);
+      animation: blankAura 9s ease-in-out infinite alternate;
+    }
+
+    .card-01 .card-emblem::after {
+      left: 24%;
+      right: 24%;
+      top: 62%;
+      background: linear-gradient(90deg, transparent, rgba(87, 149, 178, .26), transparent);
+      box-shadow: 0 7px 16px rgba(96, 170, 201, .08);
+    }
+
+    .card-04 .card-emblem::before {
+      width: 61%;
+      border-color: rgba(190, 116, 139, .24);
+      border-radius: 48% 52% 57% 43% / 43% 55% 45% 57%;
+      background:
+        radial-gradient(circle at 31% 34%, rgba(255, 255, 255, .62) 0 2.5%, transparent 3.2%),
+        radial-gradient(circle at 64% 31%, rgba(255, 255, 255, .54) 0 4.2%, transparent 5%),
+        radial-gradient(circle at 49% 55%, rgba(255, 255, 255, .58) 0 6%, transparent 6.8%),
+        radial-gradient(circle at 69% 68%, rgba(255, 255, 255, .47) 0 3.4%, transparent 4.2%),
+        radial-gradient(circle at 30% 71%, rgba(255, 255, 255, .5) 0 4.1%, transparent 4.9%),
+        radial-gradient(ellipse at 48% 46%, rgba(229, 167, 185, .16), transparent 57%),
+        conic-gradient(from 205deg at 51% 49%, transparent 0 18%, rgba(190, 116, 139, .1) 25%, transparent 34% 67%, rgba(232, 179, 194, .12) 75%, transparent 83%),
+        rgba(239, 194, 204, .09);
+      box-shadow:
+        inset 0 0 34px rgba(224, 152, 174, .12),
+        inset 8px -7px 20px rgba(193, 116, 139, .06),
+        0 16px 34px rgba(164, 91, 114, .07);
+    }
+
+    .card-04 .card-emblem::after {
+      width: 7px;
+      height: 7px;
+      background: rgba(190, 111, 137, .32);
+      box-shadow:
+        -46px -31px 0 2px rgba(207, 132, 153, .18),
+        49px -42px 0 5px rgba(207, 132, 153, .14),
+        60px 34px 0 3px rgba(207, 132, 153, .16),
+        -52px 43px 0 4px rgba(207, 132, 153, .13),
+        17px 55px 0 1px rgba(207, 132, 153, .15);
+      opacity: .86;
+    }
+
+    /* Customer clarification: BURNOUT uses a purpose-built exhaustion/release
+       artwork instead of the earlier generic pressure membrane. */
+    .card-04 .card-emblem::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      width: 63%;
+      aspect-ratio: 1;
+      border: 0;
+      border-radius: 50%;
+      background:
+        radial-gradient(ellipse 31% 27% at 31% 28%, rgba(211, 139, 164, .19), transparent 72%),
+        radial-gradient(ellipse 34% 28% at 68% 43%, rgba(227, 170, 187, .14), transparent 74%),
+        radial-gradient(ellipse 29% 24% at 38% 72%, rgba(195, 122, 151, .13), transparent 72%),
+        radial-gradient(ellipse 24% 20% at 72% 76%, rgba(229, 175, 192, .12), transparent 70%);
+      box-shadow: none;
+      filter: blur(13px);
+      opacity: .68;
+      transform: translate(-50%, -50%) rotate(-4deg);
+      z-index: 0;
+      animation: burnoutMist 10s ease-in-out infinite alternate;
+    }
+
+    .card-04 .card-emblem::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      width: 61%;
+      aspect-ratio: 1;
+      background: url("./burnout-bubble-pop-v5.png") center / contain no-repeat;
+      filter: blur(4px) saturate(.48);
+      opacity: .13;
+      transform: translate(-48%, -51%) scale(1.035);
+      z-index: 0;
+    }
+
+    .card-04 .card-burnout {
+      display: block;
+      position: relative;
+      z-index: 1;
+      width: 58%;
+      height: auto;
+      max-height: 94%;
+      object-fit: contain;
+      opacity: .58;
+      filter: saturate(.58) contrast(.88) brightness(1.01) blur(.18px)
+        drop-shadow(0 0 9px rgba(196, 123, 151, .11))
+        drop-shadow(0 12px 22px rgba(160, 91, 116, .055));
+      clip-path: none !important;
+      -webkit-mask-image: none !important;
+      mask-image: none !important;
+      animation: burnoutRelease 8.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes blankAura {
+      0% { transform: translate(-50%, -50%) rotate(-8deg) scale(.96); opacity: .72; }
+      100% { transform: translate(-50%, -50%) rotate(-3deg) scale(1.03); opacity: .96; }
+    }
+
+    @keyframes burnoutRelease {
+      0% { transform: translate(-2%, 2%) scale(.96) rotate(-1.2deg); opacity: .56; }
+      100% { transform: translate(2%, -2%) scale(1.025) rotate(.8deg); opacity: .72; }
+    }
+
+    @keyframes burnoutMist {
+      0% { transform: translate(-52%, -49%) rotate(-6deg) scale(.94); opacity: .46; }
+      100% { transform: translate(-48%, -52%) rotate(-1deg) scale(1.06); opacity: .72; }
+    }
+
+    @media (max-width: 767px) {
+      .card-01 .card-marble { width: 36%; opacity: .46; }
+      .card-01 .card-emblem::before { width: 56%; }
+      .card-04 .card-burnout {
+        width: 72%;
+        max-height: 106%;
+        opacity: .68;
+        filter: saturate(.72) contrast(1.02) brightness(.94)
+          drop-shadow(0 8px 14px rgba(160, 91, 116, .045));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card-01 .card-emblem::before,
+      .card-04 .card-emblem::before,
+      .card-04 .card-burnout { animation: none !important; }
+    }
   </style>
   </head>
   <body>
@@ -5699,6 +5859,7 @@
                     <div class="arch arch-layer-3"></div>
                     <div class="arch arch-front-light"></div>
                   </div>
+                  <img class="card-burnout" src="./burnout-bubble-pop-v5.png" alt="" />
                 </div>
               </div>
               <div class="card-info">
