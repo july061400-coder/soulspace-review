@@ -5571,8 +5571,34 @@
     @media (max-width: 767px) {
       .card-01 .card-marble { width: 36%; opacity: .46; }
       .card-01 .card-emblem::before { width: 56%; }
+      .card-gradient-box::before {
+        inset: 9% 7% 11% !important;
+        border-radius: 50% !important;
+        filter: blur(24px) !important;
+        opacity: .64 !important;
+      }
+      .card-01 .card-gradient-box::before {
+        background:
+          radial-gradient(ellipse at 50% 43%, rgba(117, 198, 226, .38) 0%, rgba(179, 222, 238, .2) 42%, transparent 74%);
+      }
+      .card-02 .card-gradient-box::before {
+        background:
+          radial-gradient(ellipse at 50% 45%, rgba(158, 205, 135, .36) 0%, rgba(205, 228, 191, .19) 43%, transparent 74%);
+      }
+      .card-03 .card-gradient-box::before {
+        background:
+          radial-gradient(ellipse at 50% 45%, rgba(154, 147, 218, .36) 0%, rgba(206, 201, 239, .19) 43%, transparent 74%);
+      }
+      .card-04 .card-gradient-box::before {
+        background:
+          radial-gradient(ellipse at 50% 45%, rgba(220, 143, 164, .34) 0%, rgba(238, 198, 207, .18) 43%, transparent 74%);
+      }
       .card-item.card-04 .card-emblem {
         inset: 0 8% 48%;
+        transform: translateY(3px);
+      }
+      .card-04 .card-label {
+        transform: translate(-50%, calc(-50% + 3px));
       }
       .card-04 .card-burnout {
         width: 48%;
