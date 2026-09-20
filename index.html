@@ -5369,7 +5369,8 @@
       body.is-gallery-nav:not(.is-card-open) #galleryMark .soul-logo,
       body.is-mobile-transition #galleryMark .soul-logo,
       body.is-about #galleryMark .soul-logo,
-      body.is-gallery-nav:not(.is-card-open) #galleryAbout {
+      body.is-gallery-nav:not(.is-card-open) #galleryAbout,
+      body.is-mobile-transition #galleryAbout {
         font-size: clamp(.58rem, 2.7vw, .68rem);
         letter-spacing: .01em;
       }
@@ -5575,23 +5576,23 @@
         inset: 9% 7% 11% !important;
         border-radius: 50% !important;
         filter: blur(24px) !important;
-        opacity: .64 !important;
+        opacity: .76 !important;
       }
       .card-01 .card-gradient-box::before {
         background:
-          radial-gradient(ellipse at 50% 43%, rgba(117, 198, 226, .38) 0%, rgba(179, 222, 238, .2) 42%, transparent 74%);
+          radial-gradient(ellipse at 50% 43%, rgba(117, 198, 226, .47) 0%, rgba(179, 222, 238, .26) 42%, transparent 74%);
       }
       .card-02 .card-gradient-box::before {
         background:
-          radial-gradient(ellipse at 50% 45%, rgba(158, 205, 135, .36) 0%, rgba(205, 228, 191, .19) 43%, transparent 74%);
+          radial-gradient(ellipse at 50% 45%, rgba(158, 205, 135, .45) 0%, rgba(205, 228, 191, .25) 43%, transparent 74%);
       }
       .card-03 .card-gradient-box::before {
         background:
-          radial-gradient(ellipse at 50% 45%, rgba(154, 147, 218, .36) 0%, rgba(206, 201, 239, .19) 43%, transparent 74%);
+          radial-gradient(ellipse at 50% 45%, rgba(154, 147, 218, .45) 0%, rgba(206, 201, 239, .25) 43%, transparent 74%);
       }
       .card-04 .card-gradient-box::before {
         background:
-          radial-gradient(ellipse at 50% 45%, rgba(220, 143, 164, .34) 0%, rgba(238, 198, 207, .18) 43%, transparent 74%);
+          radial-gradient(ellipse at 50% 45%, rgba(220, 143, 164, .43) 0%, rgba(238, 198, 207, .24) 43%, transparent 74%);
       }
       .card-item.card-04 .card-emblem {
         inset: 0 8% 48%;
@@ -5603,7 +5604,7 @@
       .card-04 .card-burnout {
         width: 48%;
         max-height: 76%;
-        top: -8px;
+        top: -4px;
         opacity: .56;
         filter: saturate(.56) contrast(.84) brightness(.99) blur(.5px)
           drop-shadow(0 8px 16px rgba(160, 91, 116, .035));
@@ -7267,7 +7268,10 @@
             if (window.matchMedia("(max-width: 767px)").matches) {
               document.body.classList.add("is-mobile-transition");
               move.set(track, { x: landX, force3D: true }, "+=.17");
-              move.add(() => document.body.classList.remove("is-mobile-transition"));
+              move.add(() => {
+                setGalleryNav(true);
+                document.body.classList.remove("is-mobile-transition");
+              });
             } else {
               move.to(track, {
                 x: landX,
