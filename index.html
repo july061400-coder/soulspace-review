@@ -5513,8 +5513,8 @@
         radial-gradient(ellipse 29% 24% at 38% 72%, rgba(195, 122, 151, .13), transparent 72%),
         radial-gradient(ellipse 24% 20% at 72% 76%, rgba(229, 175, 192, .12), transparent 70%);
       box-shadow: none;
-      filter: blur(13px);
-      opacity: .68;
+      filter: blur(16px);
+      opacity: .58;
       transform: translate(-50%, -50%) rotate(-4deg);
       z-index: 0;
       animation: burnoutMist 10s ease-in-out infinite alternate;
@@ -5529,9 +5529,9 @@
       width: 61%;
       aspect-ratio: 1;
       background: url("./burnout-bubble-pop-v5.png") center / contain no-repeat;
-      filter: blur(4px) saturate(.48);
-      opacity: .13;
-      transform: translate(-48%, -51%) scale(1.035);
+      filter: blur(6px) saturate(.42);
+      opacity: .16;
+      transform: translate(-48%, -51%) scale(1.045);
       z-index: 0;
     }
 
@@ -5543,10 +5543,10 @@
       height: auto;
       max-height: 94%;
       object-fit: contain;
-      opacity: .58;
-      filter: saturate(.58) contrast(.88) brightness(1.01) blur(.18px)
-        drop-shadow(0 0 9px rgba(196, 123, 151, .11))
-        drop-shadow(0 12px 22px rgba(160, 91, 116, .055));
+      opacity: .52;
+      filter: saturate(.5) contrast(.78) brightness(1.035) blur(.62px)
+        drop-shadow(0 0 12px rgba(196, 123, 151, .085))
+        drop-shadow(0 12px 24px rgba(160, 91, 116, .04));
       clip-path: none !important;
       -webkit-mask-image: none !important;
       mask-image: none !important;
@@ -5559,8 +5559,8 @@
     }
 
     @keyframes burnoutRelease {
-      0% { transform: translate(-2%, 2%) scale(.96) rotate(-1.2deg); opacity: .56; }
-      100% { transform: translate(2%, -2%) scale(1.025) rotate(.8deg); opacity: .72; }
+      0% { transform: translate(-2%, 2%) scale(.96) rotate(-1.2deg); opacity: .47; }
+      100% { transform: translate(2%, -2%) scale(1.025) rotate(.8deg); opacity: .61; }
     }
 
     @keyframes burnoutMist {
@@ -5571,12 +5571,16 @@
     @media (max-width: 767px) {
       .card-01 .card-marble { width: 36%; opacity: .46; }
       .card-01 .card-emblem::before { width: 56%; }
+      .card-item.card-04 .card-emblem {
+        inset: 0 8% 48%;
+      }
       .card-04 .card-burnout {
-        width: 72%;
-        max-height: 106%;
-        opacity: .68;
-        filter: saturate(.72) contrast(1.02) brightness(.94)
-          drop-shadow(0 8px 14px rgba(160, 91, 116, .045));
+        width: 48%;
+        max-height: 76%;
+        top: -12px;
+        opacity: .56;
+        filter: saturate(.56) contrast(.84) brightness(.99) blur(.5px)
+          drop-shadow(0 8px 16px rgba(160, 91, 116, .035));
       }
     }
 
